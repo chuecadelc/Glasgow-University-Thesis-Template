@@ -1,0 +1,77 @@
+\chapter{CHAPTER NAME }
+
+The results of the parameter sweeps were imported into \href{https://www.rstudio.com}{RStudio}, see Table \ref{tab:regression}.\\ 
+
+\begin{table}[!ht]
+\centering
+\begin{adjustbox}{width=\textwidth}
+\begin{tabular}{lcccc}
+\toprule
+\multicolumn{1}{c}{\multirow{2}[2]{*}{}} &  &  \textbf{Dependent Variables} &  & \\
+\cline{2-5}\\
+\multicolumn{1}{c}{\multirow{2}[2]{*}{\textbf{Independent Variables}}}  & Outcome 1 & Outcome 2 & Outcome 3 & Outcome 4  \\
+\multicolumn{1}{c}{\multirow{2}{*}{ }} & Text  & Text  & Text  & Text \\
+\toprule 
+\textit{Variable 1} & \checkmark & \checkmark & \checkmark & \checkmark\\
+\textit{Variable 2}& \checkmark & \checkmark & \checkmark & \checkmark \\
+\textit{Variable 3}& \checkmark & \checkmark & \checkmark & \checkmark \\
+\textit{Variable 4} &  & \checkmark & \checkmark & \checkmark\\
+\textit{Variable 5} &  & & & \checkmark\\
+\bottomrule
+\end{tabular}
+\end{adjustbox}
+\caption[Regression Models Table]{Table caption}
+\label{tab:regression}
+\end{table}
+
+The OLS models I propose is as follows:
+\begin{align*}
+\mathrm{Outcome}_{t} = X\beta_0 + X\beta_1 + X\beta_2 + X\beta_3 + \epsilon \\
+    & + \mathrm{X}\beta_{2} X \times \mathrm{X}\beta_{3} + \epsilon \\
+\end{align*}
+
+Results of the regression model are presented in Table \ref{tab:OLS1}.\\  %this feels silly\\
+
+\begin{table}[H] 
+\centering 
+\begin{adjustbox}{width=\textwidth}
+\begin{tabular}{@{\extracolsep{5pt}}lD{.}{.}{-3} D{.}{.}{-3} }  
+\\[-1.8ex]\hline 
+\\[-1.8ex]\hline 
+\hline \\[-1.8ex] 
+ & \multicolumn{2}{c}{\textit{Dependent variable:}} \\ 
+\cline{2-3} 
+\\[-1.8ex] & \multicolumn{2}{c}{Measure} \\ 
+\\[-1.8ex] & \multicolumn{1}{c}{Model (1)} & \multicolumn{1}{c}{Model (2)}\\ 
+\hline \\[-1.8ex] 
+  Constant & 0.215^{***} & 0.271^{***} \\ 
+  & (0.009) & (0.010) \\ 
+  & & \\ 
+  Variable 1   & -0.067^{***} & -0.064^{***} \\ 
+  & (0.003) & (0.003) \\ 
+  & & \\ 
+  Variable 2 & 0.063^{***} & -0.079^{***} \\ 
+  & (0.003) & (0.014) \\ 
+  & & \\ 
+  Variable 3 & 0.085^{***} & 0.074^{***} \\ 
+  & (0.009) & (0.008) \\ 
+  & & \\ 
+  Variable 4 & -0.158^{***} & -0.223^{***} \\ 
+  & (0.010) & (0.011) \\ 
+  & & \\ 
+  Variable 3 : Variable 4 &  & 0.183^{***} \\ 
+  &  & (0.017) \\ 
+  & & \\ 
+\hline \\[-1.8ex] 
+Observations & \multicolumn{1}{c}{480} & \multicolumn{1}{c}{480} \\ 
+Adjusted R$^{2}$ & \multicolumn{1}{c}{0.743} & \multicolumn{1}{c}{0.792} \\ 
+Residual Std. Error & \multicolumn{1}{c}{0.032 (df = 475)} & \multicolumn{1}{c}{0.029 (df = 474)} \\ 
+F Statistic & \multicolumn{1}{c}{346.682$^{***}$ (df = 4; 475)} & \multicolumn{1}{c}{366.066$^{***}$ (df = 5; 474)} \\ 
+\hline 
+\hline \\[-1.8ex] 
+\textit{Note:}  & \multicolumn{1}{r}{$^{*}$p$<$0.1; $^{**}$p$<$0.05; $^{***}$p$<$0.01} \\ 
+\end{tabular}
+\end{adjustbox}
+\caption{Table caption} 
+\label{tab:OLS1}
+\end{table} 
