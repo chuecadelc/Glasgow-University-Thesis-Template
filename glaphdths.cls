@@ -485,7 +485,7 @@
       {%\parskip=0pt
       %% Title in a parbox. Set its height to \titleboxheight
      % \hrule%
-      \vskip 1em%
+      \vskip -3em%
       {\Huge\defaultfont\bfseries%
         \parbox[c][\titleboxheight][c]{0.9\linewidth}{%
           \begin{onehalfspace}%
@@ -527,9 +527,8 @@
         \vskip 10mm%
         \centering%
           \includegraphics[width=2.5in]{\crestdefault}\par%
-        \vskip 10mm%
       }{%
-         \vskip 70mm%
+         %\vskip 70mm%
       }%
       %% Date
       \@date
