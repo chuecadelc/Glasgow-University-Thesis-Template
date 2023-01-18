@@ -249,57 +249,7 @@
 %%%% FORMAT DEFINITIONS.
 
 %% FONTS
-
-%% Make a special command called defaultfont which sets sans or not. This is
-%% the main control for changing the font style, only caption and subcaption are
-%% set otherwise, above. This was set by Mathew Topper.
-
-\newcommand{\defaultfont}{\ifthenelse{\boolean{sansflag}}{\sffamily}{}}
-
-%% Update the default font
-\ifthenelse{\boolean{sansflag}}%
-{%
-	\renewcommand{\familydefault}{\sfdefault}
-    
-}%
-{}
-
-%% Considering the optional fonts a lot of work has to be done to the table of
-%% contents otherwise there is no action taken.
-\ifthenelse{\boolean{sansflag}}%
-  {%
-  
-    %% Make at symbol an internal command
-    \makeatletter%
-    \defaultfontfeatures{Ligatures=TeX}
-    %% Because of the font change, the page number becomes too large for the
-    %% horizontal space LaTeX reserves for it by default. Without the following
-    %% redefines to fix it, this would cause the Chapter entry page numbers
-    %% to extend a few points into the right margin. The horror!
-    \renewcommand{\@pnumwidth}{1.75em}%
-    \renewcommand{\@tocrmarg}{2.75em}%
-    %%
-    %% Make at symbol safe again.
-    \makeatother%
-    %%
-    %% Switch all list fonts to sans serif.
-    \renewcommand{\cftpartfont}{\bfseries\sffamily}
-    \renewcommand{\cftchapfont}{\bfseries\sffamily}%
-    \renewcommand{\cftsecfont}{\sffamily}%
-    \renewcommand{\cftsubsecfont}{\sffamily}%
-    \renewcommand{\cftfigfont}{\sffamily}%
-    \renewcommand{\cfttabfont}{\sffamily}%
-    %%
-    \renewcommand{\cftpartpagefont}{\bfseries\sffamily}%
-    \renewcommand{\cftchappagefont}{\bfseries\sffamily}%
-    \renewcommand{\cftsecpagefont}{\sffamily}%
-    \renewcommand{\cftsubsecpagefont}{\sffamily}%
-    \renewcommand{\cftfigpagefont}{\sffamily}%
-    \renewcommand{\cfttabpagefont}{\sffamily}}%
-  {%
-    %% Otherwise, do nothing, I guess.
-  }
-  
+\setmainfont{Latin Modern Roman}
 %% PARTS
 
 %% There is a particular issue with hyperef and the part definition which can be
@@ -314,7 +264,7 @@
 
 %% Standardise the part definitions
 \titleformat{\part}[display]
-   {\Huge\defaultfont\filcenter}
+   {\Huge \filcenter}
    {\MakeUppercase{\partname{} \thepart}}
    {0em}
    {}
@@ -338,7 +288,7 @@
 %% Check for fancychap flag and change chapter default if true
 \ifthenelse{\boolean{fancychapflag}}{%
   \titleformat{\chapter}[display]%
-    {\huge\normalfont\defaultfont\filleft\onehalfspacing%
+    {\huge\normalfont \filleft\onehalfspacing%
    % \titlerule[0pt]%
     \vspace{1pt}}%
     %\titlerule}%
@@ -352,7 +302,7 @@
     %% Control the spacing of the numbered chapters.
     \titlespacing*{\chapter}{0pt}{0pt}{30pt}
     \titleformat{name=\chapter,numberless}[display]%
-    {\huge\normalfont\defaultfont\filcenter}%
+    {\huge\normalfont \filcenter}%
     %% Move the title to the top of the page
     {\vspace{-6ex}}%
     {0pt}%
@@ -364,7 +314,7 @@
     }%
   {%% Fix chapter spacing to one and a half
     \titleformat{\chapter}[display]%
-    {\huge\normalfont\defaultfont\bfseries\onehalfspacing}%
+    {\huge\normalfont \bfseries\onehalfspacing}%
     {\chaptertitlename\ \thechapter}%
     {20pt}%
     {\Huge}%
@@ -388,7 +338,7 @@
     }{%
       %% Redifine the chapters to center.
       \titleformat{\chapter}[display]%
-      {\normalfont\defaultfont\bfseries\filcenter}%
+      {\normalfont \bfseries\filcenter}%
       {\chaptertitlename \thechapter}%
       {20pt}%
       {\Huge}%
@@ -403,11 +353,11 @@
 %% Protect the section definitions from the rapport3 class as
 %% it does some weird alignment to them.
 \titleformat{\section}
-  {\normalfont\defaultfont\Large\bfseries}{\thesection}{1em}{}
+  {\normalfont \Large\bfseries}{\thesection}{1em}{}
 \titleformat{\subsection}
-  {\normalfont\defaultfont\large\bfseries}{\thesubsection}{1em}{}
+  {\normalfont \large\bfseries}{\thesubsection}{1em}{}
 \titleformat{\subsubsection}
-  {\normalfont\defaultfont\large\bfseries}{\thesubsubsection}{1em}{}
+  {\normalfont \large\bfseries}{\thesubsubsection}{1em}{}
 
 
 %%%% SINGLE SPACING QUOTE ENVIRONMENTS
@@ -486,7 +436,7 @@
       %% Title in a parbox. Set its height to \titleboxheight
      % \hrule%
       \vskip -3em%
-      {\Huge\defaultfont\bfseries%
+      {\Huge \bfseries%
         \parbox[c][\titleboxheight][c]{0.9\linewidth}{%
           \begin{onehalfspace}%
             \centering%
@@ -528,7 +478,7 @@
         \centering%
           \includegraphics[width=2.5in]{\crestdefault}\par%
       }{%
-         %\vskip 70mm%
+        % \vskip 70mm%
       }%
       %% Date
       \@date
